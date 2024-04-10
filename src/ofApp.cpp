@@ -32,6 +32,10 @@ void ofApp::setup() {
 	ofSetLogLevel("ofShader", OF_LOG_ERROR);
 	ofSetLogLevel("ofxKinect", OF_LOG_WARNING);
 
+	// Start the server on port 11999, with a delimiter of `\n`
+	tcpServer.setup(11999, true);
+	ofLog() << "TCP Server started on port 11999";
+
 	// Setup kinectProjector
 	kinectProjector = std::make_shared<KinectProjector>(projWindow);
 	kinectProjector->setup(true);
@@ -76,6 +80,19 @@ void ofApp::update() {
 
 	mapGameController.update();
 	boidGameController.update();
+
+	// Check for new messages from all clients
+	for (int i = 0; i < tcpServer.getLastID(); i++) {
+		if (tcpServer.isClientConnected(i)) {
+			// Receive data from client i
+			string str = tcpServer.receive(i);
+			if (str != "") {
+				ofLog() << "Received: " << str;
+				message = str;
+
+			}
+		}
+	}
 }
 
 
