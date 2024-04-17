@@ -85,35 +85,30 @@ void ofApp::update() {
 	for (int i = 0; i < tcpServer.getLastID(); i++) {
 		if (tcpServer.isClientConnected(i)) {
 			// Receive data from client i
-			string str = tcpServer.receive(i);
-			//ofLog() << str;
-			if (str != "") {
-				ofLog() << "Received: " << str;
-				message = str;
+			string message = tcpServer.receive(i);
+			if (message != "") {
+				ofLog() << "Received: " << message;
 
 				// Cannot use Switch-statements on non-intergral data types such as strings.
-				if (message == "B0-ON") {
-					ofLog() << "YUH!";
+				// PS: Button-input messages contains whitespace at the end at the moment. 
+				if (message == "B0-ON ") {			// Button on potmeter
+
 				}
-				else if (message == "B1-ON") {
-					
+				else if (message == "B1-ON ") {	
 				}
 				else if (message == "B2-ON") {
+				}
+				else if (message == "B3-ON ") {		// White button
+					kinectProjector->startApplication();
+				}
+				else if (message == "B4-ON ") {
 
 				}
-				else if (message == "B3-ON") {
-
-				}
-				else if (message == "B4-ON") {
-
-				}
-				else if (message == "B5-ON") {
+				else if (message == "B5-ON ") {
 
 				}
 				else if (isdigit(message[0])) {
-					ofLog() << "Tall! " << stoi(message);
 					kinectProjector->updateVerticalOffset(stoi(message));
-					//sandSurfaceRenderer->updateHeight(stoi(message));
 					sandSurfaceRenderer->updateRangesAndBasePlane();
 
 				}

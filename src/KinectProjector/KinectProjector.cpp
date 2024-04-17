@@ -1459,6 +1459,7 @@ void KinectProjector::setupGui(){
 
 void KinectProjector::startApplication()
 {
+	ofLog() << "Attempting to start application";
 	if (applicationState == APPLICATION_STATE_RUNNING)
 	{
 		applicationState = APPLICATION_STATE_SETUP;
