@@ -179,6 +179,7 @@ public:
 	// Debug functions
 	void SaveFilteredDepthImage();
 	void SaveKinectColorImage();
+	void updateVerticalOffset(int offset);
 
 private:
 

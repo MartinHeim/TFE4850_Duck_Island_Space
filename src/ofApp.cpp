@@ -32,8 +32,8 @@ void ofApp::setup() {
 	ofSetLogLevel("ofShader", OF_LOG_ERROR);
 	ofSetLogLevel("ofxKinect", OF_LOG_WARNING);
 
-	// Start the server on port 11999, with a delimiter of `\n`
-	tcpServer.setup(11999, true);
+	// Start the server on port 11999`
+	tcpServer.setup(11999, false);
 	ofLog() << "TCP Server started on port 11999";
 
 	// Setup kinectProjector
@@ -86,9 +86,39 @@ void ofApp::update() {
 		if (tcpServer.isClientConnected(i)) {
 			// Receive data from client i
 			string str = tcpServer.receive(i);
+			//ofLog() << str;
 			if (str != "") {
 				ofLog() << "Received: " << str;
 				message = str;
+
+				// Cannot use Switch-statements on non-intergral data types such as strings.
+				if (message == "B0-ON") {
+					ofLog() << "YUH!";
+				}
+				else if (message == "B1-ON") {
+					
+				}
+				else if (message == "B2-ON") {
+
+				}
+				else if (message == "B3-ON") {
+
+				}
+				else if (message == "B4-ON") {
+
+				}
+				else if (message == "B5-ON") {
+
+				}
+				else if (isdigit(message[0])) {
+					ofLog() << "Tall! " << stoi(message);
+					kinectProjector->updateVerticalOffset(stoi(message));
+					//sandSurfaceRenderer->updateHeight(stoi(message));
+					sandSurfaceRenderer->updateRangesAndBasePlane();
+
+				}
+
+
 
 			}
 		}

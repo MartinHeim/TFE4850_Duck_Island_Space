@@ -145,6 +145,15 @@ void SandSurfaceRenderer::setup(bool sdisplayGui){
     updateRangesAndBasePlane();
 }
 
+void SandSurfaceRenderer::updateHeight(int height) {
+	int i = selectedColor;
+	int j = heightMap.size() - 1 - i;
+	heightMap.setHeightKey(j, height);
+	colorList->get(i)->setLabel("Height: " + ofToString(height));
+
+
+}
+
 void SandSurfaceRenderer::exit(ofEventArgs& e){
     if (saveSettings())
     {

@@ -82,12 +82,14 @@ public:
     void onScrollViewEvent(ofxDatGuiScrollViewEvent e);
     void onSaveModalEvent(ofxModalEvent e);
     void exit(ofEventArgs& e);
-   
+
+	void updateHeight(int height);
+	void updateRangesAndBasePlane();
+
 private:
     // Private methods
     void setupMesh();
     void updateConversionMatrices();
-    void updateRangesAndBasePlane();
     void drawSandbox();
     void prepareContourLinesFbo();
     void updateColorListColor(int i, int j);
