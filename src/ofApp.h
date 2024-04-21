@@ -26,6 +26,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 #include "ofxNetwork.h"
 #include "KinectProjector/KinectProjector.h"
 #include "SandSurfaceRenderer/SandSurfaceRenderer.h"
+#include "SandSurfaceRenderer/ColorMap.h"
 #include "Games/MapGameController.h"
 #include "Games/BoidGameController.h"
 
@@ -60,6 +61,7 @@ public:
 private:
 	std::shared_ptr<KinectProjector> kinectProjector;
 	SandSurfaceRenderer* sandSurfaceRenderer;
+	ColorMap* colorMap;
 	CMapGameController mapGameController;
 	CBoidGameController boidGameController;
 

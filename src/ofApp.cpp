@@ -44,6 +44,9 @@ void ofApp::setup() {
 	sandSurfaceRenderer = new SandSurfaceRenderer(kinectProjector, projWindow);
 	sandSurfaceRenderer->setup(true);
 	
+	// Setup colorMap
+	colorMap = new ColorMap();
+
 	// Retrieve variables
 	ofVec2f kinectRes = kinectProjector->getKinectRes();
 	ofVec2f projRes = ofVec2f(projWindow->getWidth(), projWindow->getHeight());
@@ -94,20 +97,31 @@ void ofApp::update() {
 				if (message == "B0-ON ") {			// Button on potmeter
 
 				}
-				else if (message == "B1-ON ") {	
+				else if (message == "B1-ON ") {		// Blue button
+					//colorMap->loadFile("colorMaps/HeightColorMap.xml");
+					//sandSurfaceRenderer->populateColorList();
+					sandSurfaceRenderer->loadEarth();
 				}
-				else if (message == "B2-ON") {
+				else if (message == "B2-ON ") {		// Red button
+					//colorMap->loadFile("colorMaps/HeightColorMap.xml");
+					//sandSurfaceRenderer->populateColorList();
+					sandSurfaceRenderer->loadMars();
 				}
 				else if (message == "B3-ON ") {		// White button
-					kinectProjector->startApplication();
-				}
-				else if (message == "B4-ON ") {
+					//kinectProjector->startApplication();
+					//colorMap->loadFile("colorMaps/Moon.xml");
+					//sandSurfaceRenderer->populateColorList();
+					sandSurfaceRenderer->loadMoon();
+
 
 				}
-				else if (message == "B5-ON ") {
+				else if (message == "B4-ON ") {		// Green button
 
 				}
-				else if (isdigit(message[0])) {
+				else if (message == "B5-ON ") {		// Yellow button
+
+				}
+				else if (isdigit(message[0]) || message[0] == '-') {
 					kinectProjector->updateVerticalOffset(stoi(message));
 					sandSurfaceRenderer->updateRangesAndBasePlane();
 

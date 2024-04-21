@@ -471,6 +471,26 @@ void SandSurfaceRenderer::onDropdownEvent(ofxDatGuiDropdownEvent e){
     populateColorList();
 }
 
+void SandSurfaceRenderer::loadMoon() {
+	heightMap.loadFile(colorMapPath + "Moon.xml");
+	populateColorList();
+}
+
+void SandSurfaceRenderer::loadEarth() {
+	heightMap.loadFile(colorMapPath + "Earth.xml");
+	populateColorList();
+}
+
+void SandSurfaceRenderer::loadMars() {
+	heightMap.loadFile(colorMapPath + "Mars.xml");
+	populateColorList();
+}
+
+void SandSurfaceRenderer::loadDefault() {
+	heightMap.loadFile(colorMapPath + "HeightColorMap.xml");
+	populateColorList();
+}
+
 void SandSurfaceRenderer::onScrollViewEvent(ofxDatGuiScrollViewEvent e){
     int i = e.index;
     if (i != selectedColor){
