@@ -1,68 +1,64 @@
 <keys>
     <key>
         <height>-100.000000000</height>
-        <color-r>100</color-r>
-        <color-g>0</color-g>
+        <color-r>102</color-r>
+        <color-g>20</color-g>
         <color-b>0</color-b>
     </key>
     <key>
         <height>-80.000000000</height>
-        <color-r>115</color-r>
-        <color-g>0</color-g>
+        <color-r>153</color-r>
+        <color-g>40</color-g>
         <color-b>0</color-b>
     </key>
     <key>
         <height>-60.000000000</height>
-        <color-r>130</color-r>
-        <color-g>0</color-g>
+        <color-r>204</color-r>
+        <color-g>60</color-g>
         <color-b>0</color-b>
     </key>
     <key>
         <height>-40.000000000</height>
-        <color-r>145</color-r>
-        <color-g>0</color-g>
+        <color-r>255</color-r>
+        <color-g>80</color-g>
         <color-b>0</color-b>
     </key>
     <key>
         <height>-20.000000000</height>
-        <color-r>160</color-r>
-        <color-g>0</color-g>
+        <color-r>255</color-r>
+        <color-g>100</color-g>
         <color-b>0</color-b>
     </key>
     <key>
         <height>0.000000000</height>
-        <color-r>175</color-r>
-        <color-g>0</color-g>
-        <color-b>0</color-b>
+        <color-r>255</color-r>
+        <color-g>120</color-g>
+        <color-b>30</color-b>
     </key>
-    <key>
-        <height>20.000000000</height>
-        <color-r>190</color-r>
-        <color-g>0</color-g>
-        <color-b>0</color-b>
-    </key>
-    <key>
-        <height>40.000000000</height>
-        <color-r>205</color-r>
-        <color-g>0</color-g>
-        <color-b>0</color-b>
+<key>
+        <height>25.000000000</height>
+        <color-r>255</color-r>
+        <color-g>140</color-g>
+        <color-b>50</color-b>
     </key>
     <key>
         <height>60.000000000</height>
-        <color-r>220</color-r>
-        <color-g>0</color-g>
-        <color-b>0</color-b>
+        <color-r>255</color-r>
+        <color-g>170</color-g>
+        <color-b>70</color-b>
     </key>
     <key>
-        <height>80.000000000</height>
-        <color-r>235</color-r>
-        <color-g>0</color-g>
-        <color-b>0</color-b>
+        <height>90.000000000</height>
+        <color-r>255</color-r>
+        <color-g>220</color-g>
+        <color-b>90</color-b>
     </key>
     <key>
         <height>100.000000000</height>
-        <color-r>250</color-r>
-        <color-g>0</color-g>
-        <color-b>0</color-b>
+        <color-r>255</color-r>
+        <color-g>255</color-g>
+        <color-b>255</color-b>
     </key>
+</keys>
+
 </keys>

@@ -471,6 +471,11 @@ void SandSurfaceRenderer::onDropdownEvent(ofxDatGuiDropdownEvent e){
     populateColorList();
 }
 
+
+/*
+	Loads the different maps. If you want to add additional maps, create new methods in this file
+	and update the header file to include the new methods. Create new colormaps in /bin/data/colorMaps
+*/
 void SandSurfaceRenderer::loadMoon() {
 	heightMap.loadFile(colorMapPath + "Moon.xml");
 	populateColorList();

@@ -61,7 +61,6 @@ public:
 private:
 	std::shared_ptr<KinectProjector> kinectProjector;
 	SandSurfaceRenderer* sandSurfaceRenderer;
-	ColorMap* colorMap;
 	CMapGameController mapGameController;
 	CBoidGameController boidGameController;
 

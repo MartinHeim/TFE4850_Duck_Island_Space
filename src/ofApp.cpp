@@ -32,7 +32,7 @@ void ofApp::setup() {
 	ofSetLogLevel("ofShader", OF_LOG_ERROR);
 	ofSetLogLevel("ofxKinect", OF_LOG_WARNING);
 
-	// Start the server on port 11999`
+	// Start the server on port 11999 with no blocking
 	tcpServer.setup(11999, false);
 	ofLog() << "TCP Server started on port 11999";
 
@@ -44,9 +44,6 @@ void ofApp::setup() {
 	sandSurfaceRenderer = new SandSurfaceRenderer(kinectProjector, projWindow);
 	sandSurfaceRenderer->setup(true);
 	
-	// Setup colorMap
-	colorMap = new ColorMap();
-
 	// Retrieve variables
 	ofVec2f kinectRes = kinectProjector->getKinectRes();
 	ofVec2f projRes = ofVec2f(projWindow->getWidth(), projWindow->getHeight());
@@ -85,6 +82,7 @@ void ofApp::update() {
 	boidGameController.update();
 
 	// Check for new messages from all clients
+	// Probably overkill, but it supports multiple clients
 	for (int i = 0; i < tcpServer.getLastID(); i++) {
 		if (tcpServer.isClientConnected(i)) {
 			// Receive data from client i
@@ -98,22 +96,13 @@ void ofApp::update() {
 
 				}
 				else if (message == "B1-ON ") {		// Blue button
-					//colorMap->loadFile("colorMaps/HeightColorMap.xml");
-					//sandSurfaceRenderer->populateColorList();
 					sandSurfaceRenderer->loadEarth();
 				}
 				else if (message == "B2-ON ") {		// Red button
-					//colorMap->loadFile("colorMaps/HeightColorMap.xml");
-					//sandSurfaceRenderer->populateColorList();
 					sandSurfaceRenderer->loadMars();
 				}
 				else if (message == "B3-ON ") {		// White button
-					//kinectProjector->startApplication();
-					//colorMap->loadFile("colorMaps/Moon.xml");
-					//sandSurfaceRenderer->populateColorList();
 					sandSurfaceRenderer->loadMoon();
-
-
 				}
 				else if (message == "B4-ON ") {		// Green button
 
@@ -121,14 +110,15 @@ void ofApp::update() {
 				else if (message == "B5-ON ") {		// Yellow button
 
 				}
+				// Check if message is a number. Checks first if it's a number,
+				// or if it starts with a '-' sign.
 				else if (isdigit(message[0]) || message[0] == '-') {
+					// Updates the vertical offset, converts the string to integer
 					kinectProjector->updateVerticalOffset(stoi(message));
+					// Update the projection to the sand
 					sandSurfaceRenderer->updateRangesAndBasePlane();
 
 				}
-
-
-
 			}
 		}
 	}

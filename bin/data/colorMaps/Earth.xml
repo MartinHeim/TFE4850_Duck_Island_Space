@@ -61,26 +61,38 @@
     </key>
     <key>
         <height>25.000000000</height>
-        <color-r>232</color-r>
+        <color-r>125</color-r>
         <color-g>215</color-g>
         <color-b>125</color-b>
     </key>
     <key>
         <height>60.000000000</height>
-        <color-r>152</color-r>
-        <color-g>251</color-g>
-        <color-b>152</color-b>
+        <color-r>222</color-r>
+        <color-g>184</color-g>
+        <color-b>135</color-b>
     </key>
     <key>
-        <height>80.000000000</height>
-        <color-r>144</color-r>
-        <color-g>238</color-g>
-        <color-b>144</color-b>
+        <height>90.000000000</height>
+        <color-r>180</color-r>
+        <color-g>180</color-g>
+        <color-b>180</color-b>
     </key>
     <key>
-        <height>100.000000000</height>
-        <color-r>211</color-r>
-        <color-g>211</color-g>
-        <color-b>211</color-b>
+        <height>140.000000000</height>
+        <color-r>230</color-r>
+        <color-g>200</color-g>
+        <color-b>200</color-b>
+    </key>
+    <key>
+        <height>200.000000000</height>
+        <color-r>235</color-r>
+        <color-g>220</color-g>
+        <color-b>220</color-b>
+    </key>
+    <key>
+        <height>220.000000000</height>
+        <color-r>255</color-r>
+        <color-g>255</color-g>
+        <color-b>255</color-b>
     </key>
 </keys>

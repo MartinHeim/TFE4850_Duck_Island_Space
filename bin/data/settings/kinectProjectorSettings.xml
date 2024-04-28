@@ -1,9 +1,9 @@
 <KINECTSETTINGS>
-	<kinectROI>199, 118, 0, 188, 196</kinectROI>
-	<basePlaneNormalBack>0, 0, 1</basePlaneNormalBack>
-	<basePlaneOffsetBack>0, 0, 870</basePlaneOffsetBack>
-	<basePlaneEq>0, 0, 1, -870</basePlaneEq>
-	<maxOffsetBack>570</maxOffsetBack>
+	<kinectROI>206, 116, 0, 186, 202</kinectROI>
+	<basePlaneNormalBack>0.0582632, -0.0235334, 0.998024</basePlaneNormalBack>
+	<basePlaneOffsetBack>0, 0, 613.315</basePlaneOffsetBack>
+	<basePlaneEq>0.0582632, -0.0235334, 0.998024, -604.119</basePlaneEq>
+	<maxOffsetBack>533.749</maxOffsetBack>
 	<spatialFiltering>1</spatialFiltering>
 	<followBigChanges>0</followBigChanges>
 	<numAveragingSlots>15</numAveragingSlots>
