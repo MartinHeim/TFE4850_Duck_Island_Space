@@ -82,16 +82,22 @@ public:
     void onScrollViewEvent(ofxDatGuiScrollViewEvent e);
     void onSaveModalEvent(ofxModalEvent e);
     void exit(ofEventArgs& e);
-   
+
+	void updateHeight(int height);
+	void updateRangesAndBasePlane();
+	void populateColorList();
+	void loadMoon();
+	void loadDefault();
+	void loadMars();
+	void loadEarth();
+
 private:
     // Private methods
     void setupMesh();
     void updateConversionMatrices();
-    void updateRangesAndBasePlane();
     void drawSandbox();
     void prepareContourLinesFbo();
     void updateColorListColor(int i, int j);
-    void populateColorList();
     bool loadSettings();
     bool saveSettings();
     

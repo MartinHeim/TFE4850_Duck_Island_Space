@@ -32,6 +32,10 @@ void ofApp::setup() {
 	ofSetLogLevel("ofShader", OF_LOG_ERROR);
 	ofSetLogLevel("ofxKinect", OF_LOG_WARNING);
 
+	// Start the server on port 11999 with no blocking
+	tcpServer.setup(11999, false);
+	ofLog() << "TCP Server started on port 11999";
+
 	// Setup kinectProjector
 	kinectProjector = std::make_shared<KinectProjector>(projWindow);
 	kinectProjector->setup(true);
@@ -76,6 +80,48 @@ void ofApp::update() {
 
 	mapGameController.update();
 	boidGameController.update();
+
+	// Check for new messages from all clients
+	// Probably overkill, but it supports multiple clients
+	for (int i = 0; i < tcpServer.getLastID(); i++) {
+		if (tcpServer.isClientConnected(i)) {
+			// Receive data from client i
+			string message = tcpServer.receive(i);
+			if (message != "") {
+				ofLog() << "Received: " << message;
+
+				// Cannot use Switch-statements on non-intergral data types such as strings.
+				// PS: Button-input messages contains whitespace at the end at the moment. 
+				if (message == "B0-ON ") {			// Button on potmeter
+
+				}
+				else if (message == "B1-ON ") {		// Blue button
+					sandSurfaceRenderer->loadEarth();
+				}
+				else if (message == "B2-ON ") {		// Red button
+					sandSurfaceRenderer->loadMars();
+				}
+				else if (message == "B3-ON ") {		// White button
+					sandSurfaceRenderer->loadMoon();
+				}
+				else if (message == "B4-ON ") {		// Green button
+
+				}
+				else if (message == "B5-ON ") {		// Yellow button
+
+				}
+				// Check if message is a number. Checks first if it's a number,
+				// or if it starts with a '-' sign.
+				else if (isdigit(message[0]) || message[0] == '-') {
+					// Updates the vertical offset, converts the string to integer
+					kinectProjector->updateVerticalOffset(stoi(message));
+					// Update the projection to the sand
+					sandSurfaceRenderer->updateRangesAndBasePlane();
+
+				}
+			}
+		}
+	}
 }
 
 

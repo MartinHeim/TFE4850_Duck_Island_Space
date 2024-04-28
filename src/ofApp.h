@@ -23,14 +23,20 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 #include "ofMain.h"
 #include "ofxDatGui.h"
+#include "ofxNetwork.h"
 #include "KinectProjector/KinectProjector.h"
 #include "SandSurfaceRenderer/SandSurfaceRenderer.h"
+#include "SandSurfaceRenderer/ColorMap.h"
 #include "Games/MapGameController.h"
 #include "Games/BoidGameController.h"
 
 class ofApp : public ofBaseApp {
 
 public:
+	ofxTCPServer tcpServer;
+	string message;
+	string lastMessage;
+
 	void setup();
  
 	void update();

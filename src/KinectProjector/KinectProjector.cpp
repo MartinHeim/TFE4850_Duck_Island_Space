@@ -1459,6 +1459,7 @@ void KinectProjector::setupGui(){
 
 void KinectProjector::startApplication()
 {
+	ofLog() << "Attempting to start application";
 	if (applicationState == APPLICATION_STATE_RUNNING)
 	{
 		applicationState = APPLICATION_STATE_SETUP;
@@ -1742,6 +1743,12 @@ void KinectProjector::onToggleEvent(ofxDatGuiToggleEvent e){
 	}
 }
 
+void KinectProjector::updateVerticalOffset(int offset) {
+	basePlaneOffset.z = basePlaneOffsetBack.z + offset;
+	basePlaneEq = getPlaneEquation(basePlaneOffset, basePlaneNormal);
+	basePlaneUpdated = true;
+}
+
 void KinectProjector::onSliderEvent(ofxDatGuiSliderEvent e){
     if (e.target->is("Tilt X") || e.target->is("Tilt Y")) {
         basePlaneNormal = basePlaneNormalBack.getRotated(gui->getSlider("Tilt X")->getValue(), ofVec3f(1,0,0));
@@ -1750,6 +1757,7 @@ void KinectProjector::onSliderEvent(ofxDatGuiSliderEvent e){
         basePlaneUpdated = true;
     } else if (e.target->is("Vertical offset")) {
         basePlaneOffset.z = basePlaneOffsetBack.z + e.value;
+		ofLog() << "Tall! " << e.value;
         basePlaneEq = getPlaneEquation(basePlaneOffset,basePlaneNormal);
         basePlaneUpdated = true;
     } else if (e.target->is("Ceiling")){

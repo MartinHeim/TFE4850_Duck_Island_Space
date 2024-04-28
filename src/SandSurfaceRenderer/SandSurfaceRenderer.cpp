@@ -145,6 +145,15 @@ void SandSurfaceRenderer::setup(bool sdisplayGui){
     updateRangesAndBasePlane();
 }
 
+void SandSurfaceRenderer::updateHeight(int height) {
+	int i = selectedColor;
+	int j = heightMap.size() - 1 - i;
+	heightMap.setHeightKey(j, height);
+	colorList->get(i)->setLabel("Height: " + ofToString(height));
+
+
+}
+
 void SandSurfaceRenderer::exit(ofEventArgs& e){
     if (saveSettings())
     {
@@ -460,6 +469,31 @@ void SandSurfaceRenderer::onDropdownEvent(ofxDatGuiDropdownEvent e){
     colorMapFile = e.target->getLabel();
     heightMap.loadFile(colorMapPath+e.target->getLabel());
     populateColorList();
+}
+
+
+/*
+	Loads the different maps. If you want to add additional maps, create new methods in this file
+	and update the header file to include the new methods. Create new colormaps in /bin/data/colorMaps
+*/
+void SandSurfaceRenderer::loadMoon() {
+	heightMap.loadFile(colorMapPath + "Moon.xml");
+	populateColorList();
+}
+
+void SandSurfaceRenderer::loadEarth() {
+	heightMap.loadFile(colorMapPath + "Earth.xml");
+	populateColorList();
+}
+
+void SandSurfaceRenderer::loadMars() {
+	heightMap.loadFile(colorMapPath + "Mars.xml");
+	populateColorList();
+}
+
+void SandSurfaceRenderer::loadDefault() {
+	heightMap.loadFile(colorMapPath + "HeightColorMap.xml");
+	populateColorList();
 }
 
 void SandSurfaceRenderer::onScrollViewEvent(ofxDatGuiScrollViewEvent e){
